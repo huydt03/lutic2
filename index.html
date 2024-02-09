@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Boc tham</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		body {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    bottom: 0;
+		    right: 0;
+		}
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			user-select: none;
+		}
+		.animate{
+			animation: a_item 1s;
+		    transform: translate(-50%,-50%);
+			position: absolute;
+		    left: 50%;
+		    top: 50%;
+		    background-size: 100% 100%;
+		    width: 80%;
+		    height: 40%;
+		}
+		@keyframes a_item{
+			0%{
+			    transform: translate(0%,0%);
+			    width: 10%;
+			    height: 10%;
+			}
+			100%{
+			    transform: translate(-50%,-50%);
+		    width: 80%;
+		    height: 40%;
+			}
+		}
+		#app{
+			display: flex;
+		}
+		#game{
+			width: 100%;
+		}
+		.app-options{
+			width: 265px;
+			padding: 8px;
+		}
+		.app-methods{
+			display: flex;
+		    justify-content: space-around;
+			margin-bottom: 12px;
+		}
+		.app-methods div{
+			cursor: pointer;
+		    background: #00b9ff;
+		    border-radius: 4px;
+		    padding: 4px 8px;
+		    margin: 1px;
+		    color: #fff;
+		    font-weight: bold;
+		}
+		.option-item{
+			margin-bottom: 2px;
+		    position: relative;
+		    float: left;
+		    width: 50%;
+		    padding: 4px;
+		}
+		.option-item label{
+			position: absolute;
+		    background: red;
+		    top: -6px;
+		    right: -9px;
+		    width: 16px;
+		    height: 16px;
+		    border-radius: 100%;
+		    text-align: center;
+		    color: #fff;
+		    cursor: pointer;
+		    line-height: 13px;
+		    font-weight: bold;
+		}
+		.option-item img{
+			width: 100%;  
+			height: 60px;
+    		margin-top: 2px;
+		}
+		.item-container{
+			display: flex;
+		}
+		.item-container input{
+			width: 100%;
+		}
+		.game-panel{
+			display: flex;
+		    flex-direction: column;
+		    height: 100vh;
+		}
+		.game-item label{
+		    font-size: 2em;
+		    font-weight: bold;
+		    text-shadow: 2px 2px #4e4e4e;
+		}
+		.game-ticks, .game-results{
+			position: relative;
+			overflow: auto;
+			padding: 6px;
+		}
+		.game-results{
+		    height: calc(100% - 30%);
+		}
+		.game-ticks{
+			padding-top: 10px;
+		    height: 30%;
+		}
+		.game-item{
+			width: calc(100%/8) !important;
+		    color: #80ff7b;
+		}
+		.game-tick, .game-item{
+		    display: inline-block;
+		    padding: 10px;
+		    width: calc(100%/15);
+		    text-align: center;
+		    background: url(assets/imgs/qcwe.png);
+		    background-size: 100% 100%;
+		    cursor: pointer;
+		}
+		.game-tick{
+			font-size: 1em;
+			padding: 4px 8px;
+		    font-weight: bold;
+		    border: 1px solid;
+		}
+
+		#c_options:checked ~ div .app-options{
+			display: none;
+		}
+
+		#options{
+			position: fixed;
+			right: 0px;
+			height: 100%;
+			background: #fff;
+		}
+
+		.show-btn{
+			position: absolute;
+		    left: -43px;
+		    top: 15px;
+		    font-size: 47px;
+		    color: #ff8c00;
+		    font-weight: bolder;
+		    text-shadow: 3px 2px 5px #015fbb;
+		}
+
+		@media screen and (max-width: 960px){
+			.game-item{
+				width: calc(100%/5) !important;
+			}
+			.game-tick{
+				width: calc(100%/11) !important;
+			}
+		}
+
+		@media screen and (max-width: 500px){
+			.game-item{
+				width: calc(100%/3) !important;
+			}
+			.game-tick{
+				width: calc(100%/8) !important;
+			}
+		}
+		#tooltip{
+			transform: translate(-50%,-50%);
+		    position: absolute;
+		    left: 50%;
+		    top: 8%;
+		    background: #3e3e3ee0;
+		    font-size: 2em;
+		    padding: 10px;
+		    text-align: center;
+		    color: #fff;
+		    width: 300px;
+		    display: none;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+		<div id="game"></div>
+		<input type="checkbox" id="c_options" hidden checked>
+		<div id="options">
+			<label for="c_options" class="show-btn">✸</label>
+		</div>
+	</div>
+
+	<div id="tooltip">Vui lòng mở quà!</div>
+
+	<script type="text/javascript" src="assets/js/app.js"></script>
+
+</body>
+</html>
